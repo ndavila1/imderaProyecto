@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="row justify-content-center titulo">
+    <h1>Gestion de escenario</h1>
+  </div>
+  <div class="formulario">
+    <form class="row justify-content-center" [formGroup]="escenarioForm" (ngSubmit)="onSaveForm()">
+      <div class="form-group col-12">
+        <label for="nombreEscenario">Nombre Escenario</label>
+        <input formControlName="nombreEscenario" id="nombreEscenario" type="text" class="form-control"
+          placeholder="Ingrese el nombre del escenario" required>
+      </div>
+
+      <div class="form-group col-12">
+        <label for="tipoEscenario">Tipo de Escenario</label>
+        <select size="2" formControlName="tipoEscenario" class="form-control" id="tipoEscenario">
+          <option>Estadio</option>
+          <option>Coliseo</option>
+          <option>Cancha</option>
+          <option>Polideportivo</option>
+          <option>Otros</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-6 col-12">
+        <label for="comunaId">Comuna</label>
+        <select size="2" formControlName="comunaId" class="form-control" id="comunaId" required>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+          <option>Vereda</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-6 col-12">
+        <label for="claseEscenario">Clase Escenario</label>
+        <select size="2" formControlName="claseEscenario" class="form-control" id="claseEscenario" required>
+          <option>Escenario Mayor</option>
+          <option>Escenario Menor</option>
+        </select>
+        <br>
+      </div>
+      <br>
+      <button id="botonAceptacion" type="submit" class="col-md-3  col-12 btn btn-primary" *ngIf="!estado">Registrar</button>
+    </form>
+    <br>
+    <div class="row justify-content-around">
+        <button id="botonActualizacion" class="col-md-3 col-12 btn btn-dark" (click)="onResetForm()" >Actualizar</button>
+        <button id="botonModificacion" class="col-md-3 col-12 btn btn-success" *ngIf="estado">Modificar</button>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <div class="row justify-content-center" data-spy="scroll">
+    <table class="table table-active">
+      <thead>
+        <tr class="table-warning">
+          <th scope="col">Numero</th>
+          <th scope="col">Nombre Escenario</th>
+          <th scope="col">Tipo Escenario</th>
+          <th scope="col">Comuna</th>
+          <th scope="col">Clase escenario</th>
+          <th scope="col">Visualizar</th>         
+          <th scope="col">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let escenario of escenarios; let i = index">
+        <tr class="table-Primary">
+          <th scope="row">{{i+1}}</th>
+          <td>{{escenario.nombreEscenario}}</td>
+          <td>{{escenario.tipoEscenario}}</td>
+          <td>{{escenario.comunaId}}</td>
+          <td>{{escenario.claseEscenario}}</td>
+          <td>
+              <button class="btn btn-outline-info"  (click)="buscar(escenario.id)"> View
+            </button>
+          </td>
+          <td>
+              <button class="btn btn-outline-danger"  (click)="eliminar(escenario.id)"> Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
