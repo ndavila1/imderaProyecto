@@ -1,7 +1,10 @@
+<!--
 <div class="container">
   <div class="row justify-content-center titulo">
     <h1>Gestion de escenario</h1>
   </div>
+-->
+<div class="container-fluid fondo">
   <div class="formulario">
     <form class="row justify-content-center" [formGroup]="escenarioForm" (ngSubmit)="onSaveForm()">
       <div class="form-group col-12">
@@ -57,10 +60,8 @@
         <button id="botonModificacion" class="col-md-3 col-12 btn btn-success" *ngIf="estado">Modificar</button>
     </div>
   </div>
-
-  <br>
-  <br>
-  <br>
+</div>
+<!--
   <div class="row justify-content-center" data-spy="scroll">
     <table class="table table-active">
       <thead>
@@ -94,5 +95,6 @@
     </table>
   </div>
 
-
 </div>
+
+-->
